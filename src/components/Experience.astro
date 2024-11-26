@@ -1,0 +1,30 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "Actualmente",
+    title: "Desarrollador Web - BotBlaze",
+    description:
+      "Me encargo de desarrollar aplicaciones web utilizando tecnologías como Laravel, Vue, Tailwind CSS, entre otras.",
+    link: "",
+  },
+  {
+    date: "Noviembre 2023",
+    title: "Soporte Técnico",
+    description:
+      "Brindar soporte técnico a los empleados de una institución educativa.",
+    link: "",
+  },
+];
+---
+
+<ul class="relative border-gray-200 border-s dark:border-gray-700 ms-3">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ul>
