@@ -1,0 +1,146 @@
+---
+import ProjectItem from "./ProjectItem.astro";
+import Tag from "./Tag.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Laravel from "./icons/Laravel.astro";
+import JavaScript from "./icons/JavaScript.astro";
+import Jquery from "./icons/Jquery.astro";
+import Css from "./icons/Css.astro";
+import Vue from "./icons/Vue.astro";
+import Php from "./icons/Php.astro";
+import MySql from "./icons/MySql.astro";
+
+import Html from "./icons/Html.astro";
+const TAGS = {
+  TAILWIND: {
+    name: "TailwindCSS",
+    class:
+      "dark:bg-teal-900 dark:bg-opacity-10 dark:text-teal-500 bg-teal-500 bg-opacity-10 text-teal-900",
+    icon: Tailwind,
+  },
+  LARAVEL: {
+    name: "Laravel",
+    class:
+      "dark:bg-red-900 dark:bg-opacity-10 dark:text-red-500 bg-red-500 bg-opacity-10 text-red-900",
+    icon: Laravel,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class:
+      "dark:bg-yellow-900 dark:bg-opacity-10 dark:text-yellow-500 bg-yellow-500 bg-opacity-10 text-yellow-900",
+    icon: JavaScript,
+  },
+  JQUERY: {
+    name: "jQuery",
+    class:
+      "dark:bg-blue-900 dark:bg-opacity-10 dark:text-blue-500 bg-blue-500 bg-opacity-10 text-blue-900",
+    icon: Jquery,
+  },
+  CSS: {
+    name: "CSS",
+    class:
+      "dark:bg-purple-900 dark:bg-opacity-10 dark:text-purple-500 bg-purple-500 bg-opacity-10 text-purple-900",
+    icon: Css,
+  },
+  VUE: {
+    name: "Vue",
+    class:
+      "dark:bg-green-900 dark:bg-opacity-10 dark:text-green-500 bg-green-500 bg-opacity-10 text-green-900",
+    icon: Vue,
+  },
+  HTML: {
+    name: "HTML",
+    class:
+      "dark:bg-orange-900 dark:bg-opacity-10 dark:text-orange-500 bg-orange-500 bg-opacity-10 text-orange-900",
+    icon: Html,
+  },
+  PHP: {
+    name: "PHP",
+    class:
+      "dark:bg-indigo-900 dark:bg-opacity-10 dark:text-indigo-500 bg-indigo-500 bg-opacity-10 text-indigo-900",
+    icon: Php,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class:
+      "dark:bg-blue-900 dark:bg-opacity-10 dark:text-blue-500 bg-blue-500 bg-opacity-10 text-blue-900",
+    icon: MySql,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Miguitas",
+    description:
+      "Tienda virtual funcional de productos para mascotas, con un diseño atractivo y responsive.",
+    image: "/public/projects/miguitas.webp",
+    url: "https://demo.miguitassv.com/",
+    github: "https://github.com/WillianArevalo/miguitas",
+    in_development: true,
+    tags: [TAGS.LARAVEL, TAGS.JQUERY, TAGS.TAILWIND, TAGS.MYSQL],
+  },
+  {
+    title: "Entre Cheros",
+    description: "Tienda virtual de productos salvadoreños.",
+    image: "/public/projects/entre_cheros.webp",
+    url: "https://entrecheros.shop/",
+    github: "https://github.com/WillianArevalo/e-commerce-entre-cheros",
+    in_development: true,
+    tags: [TAGS.LARAVEL, TAGS.JQUERY, TAGS.TAILWIND, TAGS.MYSQL],
+  },
+  {
+    title: "Wear",
+    description:
+      "Este proyecto esta enfocado el diseño de una tienda de ropa, con sus respectivas paginas principales, y un simple funcionamiento, y validación de formularios. No se esta utilizando base de datos.",
+    image: "/public/projects/wear.webp",
+    url: "https://wear-six.vercel.app/",
+    github: "https://github.com/WillianArevalo/wear",
+    in_development: true,
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
+  },
+  {
+    title: "CIS",
+    description:
+      "CIS es una plataforma encargada de administrar y gestionar los proyectos de becados de una organización.",
+    image: "/public/projects/cis.webp",
+    url: "https://cis-tacachico.site/",
+    github: "https://github.com/WillianArevalo/cis-web",
+    in_development: false,
+    tags: [TAGS.CSS, TAGS.PHP, TAGS.MYSQL, TAGS.JQUERY, TAGS.HTML],
+  },
+  {
+    title: "Marvel",
+    description:
+      "Página web que se conecta a la API de Marvel para mostrar los personajes",
+    image: "/public/projects/marvel.webp",
+    url: "",
+    in_development: false,
+    github: "https://github.com/WillianArevalo/marvel-project-dev",
+    tags: [TAGS.PHP, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.HTML],
+  },
+  {
+    title: "Proyectos HTML, CSS, JavaScript",
+    description:
+      "Muestra los desafíos de HTML, CSS y JavaScript, con sus respectivas soluciones. Desafíos de páginas famosas como Frontend Mentor.",
+    image: "/public/projects/projects.webp",
+    url: "https://projects-html-css-js-hazel.vercel.app/",
+    github: "https://github.com/WillianArevalo/projects-html-css-js",
+    in_development: false,
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
+  },
+];
+---
+
+<div class="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
+  {
+    PROJECTS.map((project) => (
+      <ProjectItem {...project}>
+        <ul class="flex flex-row flex-wrap gap-2 mb-2" slot="tags">
+          {project.tags.map((tag) => (
+            <Tag {...tag} />
+          ))}
+        </ul>
+      </ProjectItem>
+    ))
+  }
+</div>
