@@ -1,0 +1,16 @@
+---
+export interface Props {
+  name: string;
+  icon: any;
+  class?: string;
+}
+
+const { name, icon: Icon, class: className } = Astro.props as Props;
+---
+
+<li
+  class={`flex items-center gap-x-2  px-3 py-1.5 rounded-full text-xs ${className}`}
+>
+  <Icon class="size-4" />
+  {name}
+</li>
