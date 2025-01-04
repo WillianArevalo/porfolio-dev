@@ -27,7 +27,7 @@ const TAGS = {
   JAVASCRIPT: {
     name: "JavaScript",
     class:
-      "dark:bg-yellow-900 dark:bg-opacity-10 dark:text-yellow-500 bg-yellow-500 bg-opacity-10 text-yellow-900",
+      "dark:bg-violet-900 dark:bg-opacity-10 dark:text-violet-500 bg-violet-500 bg-opacity-10 text-violet-900",
     icon: JavaScript,
   },
   JQUERY: {
@@ -70,6 +70,16 @@ const TAGS = {
 
 const PROJECTS = [
   {
+    title: "CIS WITH LARAVEL",
+    description:
+      "Cis re-estructurado con Laravel, con un diseño atractivo y responsive.",
+    image: "/projects/cis-2.png",
+    url: "https://demo.cis-tacachico.site/",
+    github: "https://github.com/WillianArevalo/project-cis",
+    in_development: false,
+    tags: [TAGS.LARAVEL, TAGS.JQUERY, TAGS.TAILWIND, TAGS.MYSQL],
+  },
+  {
     title: "Miguitas",
     description:
       "Tienda virtual funcional de productos para mascotas, con un diseño atractivo y responsive.",
@@ -109,16 +119,6 @@ const PROJECTS = [
     tags: [TAGS.CSS, TAGS.PHP, TAGS.MYSQL, TAGS.JQUERY, TAGS.HTML],
   },
   {
-    title: "Marvel",
-    description:
-      "Página web que se conecta a la API de Marvel para mostrar los personajes",
-    image: "/projects/marvel.webp",
-    url: "",
-    in_development: false,
-    github: "https://github.com/WillianArevalo/marvel-project-dev",
-    tags: [TAGS.PHP, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.HTML],
-  },
-  {
     title: "Proyectos HTML, CSS, JavaScript",
     description:
       "Muestra los desafíos de HTML, CSS y JavaScript, con sus respectivas soluciones. Desafíos de páginas famosas como Frontend Mentor.",
@@ -131,7 +131,7 @@ const PROJECTS = [
 ];
 ---
 
-<div class="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
+<div class="flex flex-col gap-10">
   {
     PROJECTS.map((project) => (
       <ProjectItem {...project}>
