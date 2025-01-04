@@ -9,8 +9,8 @@ const { name, icon: Icon, class: className } = Astro.props as Props;
 ---
 
 <li
-  class={`flex items-center gap-x-2  px-3 py-1.5 rounded-full text-xs ${className}`}
+  class={`flex items-center gap-x-2 px-2 py-1 rounded-full text-xs ${className}`}
 >
-  <Icon class="size-4" />
-  {name}
+  <Icon class="size-3" />
+  <span>{name}</span>
 </li>
