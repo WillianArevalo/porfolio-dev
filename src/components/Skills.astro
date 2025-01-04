@@ -1,0 +1,91 @@
+---
+import Css from "./icons/Css.astro";
+import Html from "./icons/Html.astro";
+import JavaScript from "./icons/JavaScript.astro";
+import Laravel from "./icons/Laravel.astro";
+import MySql from "./icons/MySql.astro";
+import Php from "./icons/Php.astro";
+import Vue from "./icons/Vue.astro";
+import Java from "./icons/Java.astro";
+import Bootstrap from "./icons/Bootstrap.astro";
+import AstroIcon from "./icons/AstroIcon.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Jquery from "./icons/Jquery.astro";
+import CPlusPlus from "./icons/C++.astro";
+import CSharp from "./icons/CSharp.astro";
+import MongoDB from "./icons/MongoDB.astro";
+
+const SKILLS = [
+  {
+    name: "HTML",
+    icon: Html,
+  },
+  {
+    name: "CSS",
+    icon: Css,
+  },
+  {
+    name: "JavaScript",
+    icon: JavaScript,
+  },
+  {
+    name: "Vue",
+    icon: Vue,
+  },
+  {
+    name: "PHP",
+    icon: Php,
+  },
+  {
+    name: "Laravel",
+    icon: Laravel,
+  },
+  {
+    name: "MySql",
+    icon: MySql,
+  },
+  {
+    name: "Java",
+    icon: Java,
+  },
+  {
+    name: "Bootstrap",
+    icon: Bootstrap,
+  },
+  {
+    name: "Astro",
+    icon: AstroIcon,
+  },
+  {
+    name: "TailwindCSS",
+    icon: Tailwind,
+  },
+  {
+    name: "JQuery",
+    icon: Jquery,
+  },
+  {
+    name: "C++",
+    icon: CPlusPlus,
+  },
+  {
+    name: "C#",
+    icon: CSharp,
+  },
+  {
+    name: "MongoDB",
+    icon: MongoDB,
+  },
+];
+---
+
+<div class="gap-4 grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6">
+  {
+    SKILLS.map((skill) => (
+      <div class="flex flex-col items-center gap-4 bg-zinc-800 dark:bg-zinc-900 p-4 rounded-lg w-28">
+        <skill.icon class="size-12" />
+        <span class="text-white text-xs">{skill.name}</span>
+      </div>
+    ))
+  }
+</div>
