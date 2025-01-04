@@ -16,52 +16,59 @@ const { image, title, description, url, github, in_development } =
   Astro.props as Props;
 ---
 
-<div
-  class="flex flex-col border-zinc-400 dark:border-zinc-700/50 border rounded-lg overflow-hidden"
->
-  <img
-    src={image}
-    alt={title}
-    class="w-full h-60 transition-all duration-300 object-cover"
-  />
-  <div class="flex flex-col gap-y-1 p-4">
-    <slot name="tags" />
-    <h3 class="font-semibold text-lg text-zinc-800 dark:text-white bg">
-      {title}
-    </h3>
-    <p class="text-sm text-zinc-600 dark:text-zinc-300">{description}</p>
-    <div class="flex justify-end items-center gap-x-2 mt-4">
+<div class="flex flex-row gap-4 overflow-hidden">
+  <div class="flex-1 rounded-xl overflow-hidden">
+    <img
+      src={image}
+      alt={title}
+      class="w-full h-60 object-center object-cover"
+    />
+  </div>
+  <div class="relative flex-1">
+    <div class="flex flex-col gap-y-1">
+      <div class="flex justify-between mb-4 w-full">
+        <h3
+          class="font-semibold text-xl text-zinc-800 dark:text-whitet dark:text-white uppercase"
+        >
+          {title}
+        </h3>
+        <div class="flex justify-end items-center gap-x-2">
+          {
+            in_development && (
+              <span class="flex items-center gap-x-2 text-violet-500 text-xs dark:text-violet-300">
+                <Keyboard class="size-3" />
+                En desarrollo...
+              </span>
+            )
+          }
+        </div>
+      </div>
+      <slot name="tags" />
+      <p class="text-sm text-zinc-600 dark:text-zinc-300">{description}</p>
+    </div>
+    <div
+      class="right-0 bottom-0 absolute flex flex-row justify-end items-center gap-2 mt-4"
+    >
       {
-        in_development && (
-          <span class="flex items-center gap-x-2 bg-blue-900 bg-opacity-10 px-2 py-1 rounded-full text-blue-500 text-sm">
-            <Keyboard class="size-4" />
-            En desarrollo...
-          </span>
+        url && (
+          <a
+            href={url}
+            target="_blank"
+            class="flex flex-row items-center gap-x-2 border-zinc-400 dark:border-zinc-700 bg-transparent dark:hover:bg-zinc-800 hover:bg-zinc-100 dark:bg-zinc-900 px-4 py-2 border rounded-full w-max text-zinc-800 sm:text-sm dark:hover:text-white dark:text-white transition-colors duration-300"
+          >
+            <Link class="size-4" />
+            <span class="text-sm">Ver proyecto</span>
+          </a>
         )
       }
+      <a
+        href={github}
+        target="_blank"
+        class="flex flex-row items-center gap-x-2 border-zinc-400 dark:border-zinc-700 bg-transparent dark:hover:bg-zinc-800 hover:bg-zinc-100 dark:bg-zinc-900 px-4 py-2 border rounded-full w-max text-zinc-800 sm:text-sm dark:hover:text-white dark:text-white transition-colors duration-300"
+      >
+        <Github class="size-4" />
+        <span class="text-sm">Repositorio</span>
+      </a>
     </div>
-  </div>
-  <div class="flex flex-row justify-end items-center gap-2 mt-auto px-4 pb-4">
-    {
-      url && (
-        <a
-          href={url}
-          target="_blank"
-          class="flex items-center gap-x-1 border-zinc-400 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 px-4 py-2 border rounded-full text-sm text-zinc-600 dark:text-zinc-300"
-        >
-          <Link class="size-4" />
-          <span class="text-sm md:text-base">Ver proyecto</span>
-        </a>
-      )
-    }
-
-    <a
-      href={github}
-      target="_blank"
-      class="flex items-center gap-x-1 border-zinc-400 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 px-4 py-2 border rounded-full text-sm text-zinc-600 dark:text-zinc-300"
-    >
-      <Github class="size-4" />
-      <span class="text-sm md:text-base">Repositorio</span>
-    </a>
   </div>
 </div>
